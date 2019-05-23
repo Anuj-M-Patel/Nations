@@ -1,3 +1,4 @@
+package nations.main;
 
 public class Main {
 
