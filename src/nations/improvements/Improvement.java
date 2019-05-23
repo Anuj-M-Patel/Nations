@@ -1,6 +1,6 @@
 package nations.improvements;
 
-public class Improvement {
+public abstract class Improvement {
 
 	private int production;
 	private int gold;

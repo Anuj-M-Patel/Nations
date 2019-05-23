@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import nations.buildings.Building;
 import nations.improvements.Improvement;
-import nations.improvements.NoImprovement;
 import nations.nations.Nation;
 import nations.terrains.Terrain;
 import nations.units.Unit;
@@ -48,6 +47,9 @@ public class City {
 	
 	public void setOwner(Nation nation) {
 		owner = nation;
+		for (Tile tile : tiles) {
+			tile.setOwner(nation);
+		}
 	}
 	
 	public void addBuilding(Building building) {

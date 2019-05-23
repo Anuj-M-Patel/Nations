@@ -2,7 +2,6 @@ package nations.main;
 import nations.terrains.Terrain;
 import nations.units.Unit;
 import nations.improvements.Improvement;
-import nations.improvements.NoImprovement;
 import nations.nations.Nation;
 
 public class Tile {
@@ -19,7 +18,7 @@ public class Tile {
 		production = terrain.getProduction();
 		gold = terrain.getGold();
 		food = terrain.getFood();
-		improvement = new NoImprovement();
+		improvement = null;
 		unit = null;
 	}
 	
@@ -43,10 +42,21 @@ public class Tile {
 		this.improvement = improvement;
 	}
 	
+	public void setUnit(Unit unit) {
+		this.unit = unit;
+	}
+	
 	public void update() {
-		production = terrain.getProduction() + improvement.getProduction(); 
-		gold = terrain.getGold() + improvement.getGold(); 
-		food = terrain.getFood() + improvement.getFood();
+		if (improvement != null) {
+			production = terrain.getProduction() + improvement.getProduction(); 
+			gold = terrain.getGold() + improvement.getGold(); 
+			food = terrain.getFood() + improvement.getFood();
+		}
+		else {
+			production = terrain.getProduction();
+			gold = terrain.getGold();
+			food = terrain.getFood();
+		}
 	}
 	
 }
